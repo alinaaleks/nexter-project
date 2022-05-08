@@ -1,4 +1,76 @@
 .homes {
   grid-column: center-start / center-end;
-  background-color: $color-secondary;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 7rem;
+  margin: 15rem 0;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem 0;
+  background-color: $color-grey-light-1;
+
+  &__img {
+    grid-area: 1 / 1 / 2 / -1;
+    z-index: 1;
+    width: 100%;
+  }
+
+  &__like {
+    //overlapping in grid cell. Need to specify grid-area for both elements. z-index - just in case
+    grid-area: 1 / 2 / 2 / -1;
+    justify-self: end;
+    z-index: 2;
+    margin: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: $color-primary;
+  }
+
+  &__name {
+    grid-area: 1 / 1 / 2 / -1;
+    justify-self: center;
+    align-self: end;
+    //in relation to element itself
+    transform: translateY(50%);
+    z-index: 2;
+
+    width: 80%;
+    padding: 1.25rem;
+    background-color: $color-secondary;
+    color: #fff;
+    text-align: center;
+    font-family: $font-display;
+    font-size: 1.6rem;
+  }
+
+  &__location,
+  &__rooms {
+    margin-top: 2.5rem;
+  }
+
+  &__location,
+  &__rooms,
+  &__area,
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $color-primary;
+    }
+
+  }
+
+  &__btn {
+    grid-column: 1 / -1;
+  }
 }
