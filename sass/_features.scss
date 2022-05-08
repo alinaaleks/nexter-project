@@ -1,4 +1,30 @@
 .features {
   grid-column: center-start / center-end;
-  background-color: $color-grey-light-2;
+
+  display: grid;
+  //grid-template-columns: repeat(3, 1fr); autofit creates as many tracks as can fit in width that we define in minmax
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  align-items: start;
+  gap: 6rem;
+  margin: 15rem 0;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  //row-gap: 1.5rem;
+  gap: 1.5rem 2.5rem;
+
+  &__icon {
+    // -1 at the end only works with explicit grid
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem);
+    width: 4.5rem;
+    height: 4.5rem;
+    fill: $color-primary;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
