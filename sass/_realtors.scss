@@ -9,11 +9,24 @@
   padding: 3rem;
   background-color: $color-secondary;
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: full-start / full-end;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: min-content max-content;
     align-items: center;
     gap: 5vh 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      //made 6 columns instead of 3
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+    @media only screen and (max-width: $bp-small) {
+      //went back to 3 columns
+      grid-template-columns: min-content max-content;
+    }
   }
 
   &__img {
